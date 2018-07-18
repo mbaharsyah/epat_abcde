@@ -1,7 +1,12 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import repository.Task;
+import repository.TaskRepository;
+
 public class MainClass {
+	private static TaskRepository repo = new TaskRepository();
+	
 	public static void main(String[] args){
 		boolean exit = false;
 		do {
@@ -33,7 +38,9 @@ public class MainClass {
 			break;
 			
 		case 2:
-			System.out.println("2");
+//			System.out.println("2");
+			Task newTask = readTaskInput();
+			repo.add(newTask);
 			break;
 			
 		case 3:
@@ -61,5 +68,20 @@ public class MainClass {
 			System.out.println(s);
 		}
 		
+	}
+	
+	private static Task readTaskInput(){
+		Scanner scanner = new Scanner(System.in);;
+		try {
+			String input = scanner.nextLine();
+			
+			String[] arr = input.split(":");
+			final Task task = new Task();
+			task.setName(arr[0]);
+			task.setDescription(arr[1]);
+			return task;
+		} finally {
+			scanner.close();
+		}
 	}
 }
