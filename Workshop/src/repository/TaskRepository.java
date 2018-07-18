@@ -22,6 +22,16 @@ public class TaskRepository {
 	public void add(Task task) {
 		tasks.add(task);
 	}
+	
+	public void delete(String taskName) {
+		Task taskToDelete = null;
+		for (Task task : tasks) {
+			if (task.getName().equals(taskName)) {
+				taskToDelete = task;
+			}
+		}
+		tasks.remove(taskToDelete);
+	}
 
 	public boolean contains(Task task) {
 		return tasks.contains(task);
