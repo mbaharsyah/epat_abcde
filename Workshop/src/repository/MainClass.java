@@ -1,5 +1,6 @@
 package repository;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class MainClass {
@@ -41,14 +42,13 @@ public class MainClass {
 		switch(input){
 		case 1:
 			System.out.println("1");
+			showCurrentList();
 			break;
 			
 		case 2:
 			System.out.println("Enter Task Name");
 			String taskname = scanner.nextLine();
 			addTask(taskname);
-			
-			System.out.println(repo.getTasks());
 			break;
 			
 		case 3:
@@ -72,15 +72,11 @@ public class MainClass {
 		repo.add(task);
 	}
 	
-	public void showCurrentList(){
-		ArrayList<String> list = new ArrayList<String>();
-		list.add("Fix bug no 1");
-		list.add("Fix bug no 2");
-		list.add("Fix bug no 3");
+	public void showCurrentList() {
+		List<Task> taskList = repo.getTasks();
 		
-		for (String s : list){
-			System.out.println(s);
+		for (Task s : taskList){
+			System.out.println(s.getName());
 		}
-		
 	}
 }
