@@ -34,4 +34,27 @@ public class RepositoryTests {
 		assertTrue(success);
 	}
 
+	@Test
+	public void testDeleteTask() {
+		String taskName1 = "TEST CASE 1";
+		String taskName2 = "TEST CASE 2";
+		boolean deleted = true;
+		
+		// GIVEN new task object
+		MainClass app = new MainClass(repo);
+		
+		// WHEN task is added to the repo
+		app.addTask(taskName1);
+		app.addTask(taskName2);
+		app.deleteTask(taskName1);
+		
+		// THEN the repo contains the new task
+		for (Task task : repo.getTasks()) {
+			if (task.getName().equals(taskName1)) {
+				deleted = false;
+			}
+		}
+		assertTrue(deleted);
+	}
+
 }

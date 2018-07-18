@@ -37,6 +37,7 @@ public class MainClass {
 	public int readInput(){
 		Scanner scanner = new Scanner(System.in);
 		int input = scanner.nextInt();	
+		String taskname;
 		scanner.nextLine();
 		
 		switch(input){
@@ -47,12 +48,15 @@ public class MainClass {
 			
 		case 2:
 			System.out.println("Enter Task Name");
-			String taskname = scanner.nextLine();
+			taskname = scanner.nextLine();
 			addTask(taskname);
 			break;
 			
 		case 3:
 			System.out.println("3");
+			System.out.println("Enter Task Name");
+			taskname = scanner.nextLine();
+			deleteTask(taskname);
 			break;
 			
 		case 9:
@@ -70,6 +74,10 @@ public class MainClass {
 		Task task = new Task();
 		task.setName(taskName);
 		repo.add(task);
+	}
+	
+	public void deleteTask(String taskName) {
+		repo.delete(taskName);
 	}
 	
 	public void showCurrentList() {
