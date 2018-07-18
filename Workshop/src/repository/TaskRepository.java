@@ -7,7 +7,7 @@ public class TaskRepository {
 	
 	private List<Task> tasks;
 	
-	TaskRepository() {
+	public TaskRepository() {
 		tasks = new ArrayList<>();
 	}                                                                                                                 
 	
