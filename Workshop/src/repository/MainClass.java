@@ -43,6 +43,7 @@ public class MainClass {
 		case 1:
 			System.out.println("1");
 			showCurrentList();
+			
 			break;
 			
 		case 2:
