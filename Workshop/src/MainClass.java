@@ -38,7 +38,7 @@ public class MainClass {
 			break;
 			
 		case 2:
-//			System.out.println("2");
+			System.out.println("Create task in following format <Title>:<Description>");
 			Task newTask = readTaskInput();
 			repo.add(newTask);
 			break;
@@ -71,8 +71,7 @@ public class MainClass {
 	}
 	
 	private static Task readTaskInput(){
-		Scanner scanner = new Scanner(System.in);;
-		try {
+		Scanner scanner = new Scanner(System.in);
 			String input = scanner.nextLine();
 			
 			String[] arr = input.split(":");
@@ -80,8 +79,5 @@ public class MainClass {
 			task.setName(arr[0]);
 			task.setDescription(arr[1]);
 			return task;
-		} finally {
-			scanner.close();
-		}
 	}
 }
