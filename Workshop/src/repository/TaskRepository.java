@@ -7,7 +7,15 @@ public class TaskRepository {
 	
 	private List<Task> tasks;
 	
-	TaskRepository() {
+	public List<Task> getTasks() {
+		return tasks;
+	}
+
+	public void setTasks(List<Task> tasks) {
+		this.tasks = tasks;
+	}
+
+	public TaskRepository() {
 		tasks = new ArrayList<>();
 	}                                                                                                                 
 	

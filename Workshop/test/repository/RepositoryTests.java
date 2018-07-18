@@ -11,19 +11,27 @@ public class RepositoryTests {
 	
 	@Before
 	public void setup() {
-		repo=new TaskRepository();
+		repo = new TaskRepository();
 	}
 
 	@Test
 	public void testAddingTask() {
+		String taskName = "TEST CASE";
+		boolean success = false;
+		
 		// GIVEN new task object
-		Task task = new Task();
+		MainClass app = new MainClass(repo);
 		
 		// WHEN task is added to the repo
-		repo.add(task);
+		app.addTask(taskName);
 		
 		// THEN the repo contains the new task
-		assertTrue(repo.contains(task));
+		for (Task task : repo.getTasks()) {
+			if (task.getName().equals(taskName)) {
+				success = true;
+			}
+		}
+		assertTrue(success);
 	}
 
 }
